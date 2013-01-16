@@ -1,0 +1,86 @@
+/* 
+    Document   : style.css
+    Created on : 16.01.2013, 0:47:44
+    Author     : Erko
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* SYSTEM */
+.error {
+    border-color: red;
+}
+
+.success {
+    border-color: green;
+}
+
+/* DEMO */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url('bg.gif') ;
+    text-align: center;
+    font-size: 100%;
+    line-height: 1.5;
+    color: #222;
+    font-family: "wf_SegoeUI","Tahoma","Verdana","Arial","sans-serif";
+    font-weight: normal;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 900px;
+    min-height: 900px;
+    background: #FFF;
+    padding: 20px 20px 100px 20px;
+    box-shadow: 0px 0px 10px;
+}
+
+.content {
+    text-align: left;
+}
+
+h1 {
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+    font-weight: 300;
+    color: #1a1a1a;
+    line-height: 1.25;
+    margin: .25em 0 .75em;
+}
+
+h3 {
+    font-family: "wf_SegoeUILight","wf_SegoeUI","Segoe UI Light","Segoe WP Light","Segoe UI","Segoe","Segoe WP","Tahoma","Verdana","Arial","sans-serif";
+    font-weight: 300;
+    color: #1a1a1a;
+    line-height: 1.25;
+    margin: .25em 0 .75em;
+}
+
+.myinput {
+    width: 300px;
+    margin-right: 20px;
+    height: 24px;
+    border-width: 1px;
+    padding: 0 10px;
+}
+
+label {
+    font-size: 12px;
+}
+
+pre {
+    margin: 0;
+}
+
+small {
+    font-size: 12px;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    padding-left: 20px;
+}

@@ -3,12 +3,197 @@
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script type="text/javascript" src="js/jquery.validateme.js"></script>
-        
+        <script type="text/javascript" src="js/jquery.validate.js"></script>
+
+        <link type="text/css" rel="stylesheet" href="css/style.css" />
+
     </head>
     <body>
-        <div>TODO write content</div>
+
+        <div class="wrapper">
+            <h1>ValidateMe</h1>
+            <h3>Powerfull jQuery validation module</h3>
+
+            <div class="content">
+
+                <h4>Using</h4>
+                <section>
+                    <p>Add this code to &lt;head> section of your html code</p>
+
+                    <small>html code</small>
+                    <pre style='color:#000020;background:#f6f8ff;'><span style='color:#0057a6; '>&lt;</span><span style='color:#200080; font-weight:bold; '>script type="text/javascript" src="js/jquery.min.js"</span><span style='color:#0057a6; '>></span><span style='color:#0057a6; '>&lt;/</span><span style='color:#200080; font-weight:bold; '>script</span><span style='color:#0057a6; '>></span>
+<span style='color:#0057a6; '>&lt;</span><span style='color:#200080; font-weight:bold; '>script type="text/javascript" src="js/jquery.validate.js"</span><span style='color:#0057a6; '>></span><span style='color:#0057a6; '>&lt;/</span><span style='color:#200080; font-weight:bold; '>script</span><span style='color:#0057a6; '>></span></pre>
+
+                    <p>For validating some object add code like this</p>
+                    <small>javasript code</small>
+                    <pre style='color:#000020;background:#f6f8ff;'>$<span style='color:#308080; '>(</span>document<span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>ready<span style='color:#308080; '>(</span><span style='color:#200080; font-weight:bold; '>function</span><span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>{</span>
+    $<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>#id1</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>validate<span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
+<span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span></pre>
+
+                </section>
+
+                <h4>Example 1. Adding Rules</h4>
+                <p>
+                    Lets add some rules for out input. ValidateMe has default functions for validating.
+                    All functions you can watch later. Okay. For example, I use rule "reqired".
+                </p>
+
+                <section>
+
+                    <input class="myinput" type="text" id="id1" />
+<br/>
+                    <small>javascript code</small>
+                    <pre style='color:#000020;background:#f6f8ff;'>$<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>#id1</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>validate<span style='color:#308080; '>(</span><span style='color:#406080; '>{</span>
+    rules<span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+        <span style='color:#1060b6; '>'required'</span> <span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+            <span style='color:#1060b6; '>'msg'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'This input required'</span>
+        <span style='color:#406080; '>}</span>
+    <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
+    <span style='color:#1060b6; '>'default'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'All right'</span>
+<span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span></pre>
+                </section>
+                
+                <h4>Example 2. Passing options</h4>
+                <p>
+                    Some functions use options. For example length function can use options as like 'min', 'max'. Perhaps the meaning of this two you have learned.
+                </p>
+                
+                <section>
+                    
+                    <input class="myinput" type="text" id="id2" />
+                    <br/>
+                    
+                    <small>javascript code</small>
+                    <pre style='color:#000020;background:#f6f8ff;'>$<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>#id2</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>validate<span style='color:#308080; '>(</span><span style='color:#406080; '>{</span>
+    rules<span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+        <span style='color:#1060b6; '>'length'</span> <span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+            <span style='color:#1060b6; '>'msg'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'Length of this must be longer or equal to 2, less or equal to 6, <br/>must not equal to 3 and can be only 4,5 or 6'</span><span style='color:#308080; '>,</span>
+            <span style='color:#1060b6; '>'min'</span><span style='color:#406080; '>:</span> <span style='color:#008c00; '>2</span><span style='color:#308080; '>,</span>
+            <span style='color:#1060b6; '>'max'</span><span style='color:#406080; '>:</span> <span style='color:#008c00; '>6</span><span style='color:#308080; '>,</span>
+            <span style='color:#1060b6; '>'not_equal'</span><span style='color:#406080; '>:</span> <span style='color:#008c00; '>3</span><span style='color:#308080; '>,</span>
+            <span style='color:#1060b6; '>'equals'</span><span style='color:#406080; '>:</span> <span style='color:#308080; '>[</span><span style='color:#008c00; '>4</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>5</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>6</span><span style='color:#308080; '>]</span>
+        <span style='color:#406080; '>}</span>
+    <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
+    <span style='color:#1060b6; '>'default'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'All right'</span>
+<span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span></pre>
+<br/>
+                    
+                </section>
+                
+                <h4>Example 3. Using an another place for showing status</h4>
+                <p>
+                    ValidateMe support using another place for show status. It possible with 'displayTo' option.
+                    You must pass there a jQuery object for showin status on it.
+                </p>
+                
+                <section>
+                    
+                    <input class="myinput" type="text" id="id3" />
+                    <br/>
+                    <h4 id="another_place"></h4>
+                   <small>javascript code</small> 
+<pre style='color:#000020;background:#f6f8ff;'>$<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>#id3</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>validate<span style='color:#308080; '>(</span><span style='color:#406080; '>{</span>
+    rules<span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+        <span style='color:#1060b6; '>'required'</span> <span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+            <span style='color:#1060b6; '>'msg'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'This input required'</span>
+        <span style='color:#406080; '>}</span>
+    <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
+    <span style='color:#1060b6; '>'displayTo'</span> <span style='color:#406080; '>:</span> $<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>#another_place</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>,</span>
+    <span style='color:#1060b6; '>'default'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'All right'</span>
+<span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span></pre>                    
+                    
+                </section>
+                
+                <h4>Example 4. Using another functions.</h4>
+                <p>You can use your functions for validating. For it you just write your function name with prepending "function_" string</p>
+                
+                <section>
+                    <input class="myinput" type="text" id="id4" />
+                    <br/>
+                    <small>javascript code</small> 
+                    
+                    <pre style='color:#000020;background:#f6f8ff;'><span style='color:#200080; font-weight:bold; '>function</span> prefix_must_salem<span style='color:#308080; '>(</span>str<span style='color:#308080; '>,</span> options<span style='color:#308080; '>)</span>
+<span style='color:#406080; '>{</span>
+    <span style='color:#200080; font-weight:bold; '>return</span> str<span style='color:#308080; '>.</span><span style='color:#200080; font-weight:bold; '>substr</span><span style='color:#308080; '>(</span><span style='color:#008c00; '>0</span><span style='color:#308080; '>,</span><span style='color:#008c00; '>5</span><span style='color:#308080; '>)</span> <span style='color:#308080; '>==</span> <span style='color:#800000; '>"</span><span style='color:#1060b6; '>salem</span><span style='color:#800000; '>"</span><span style='color:#406080; '>;</span>
+<span style='color:#406080; '>}</span>
+
+$<span style='color:#308080; '>(</span>document<span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>ready<span style='color:#308080; '>(</span><span style='color:#200080; font-weight:bold; '>function</span><span style='color:#308080; '>(</span><span style='color:#308080; '>)</span><span style='color:#406080; '>{</span>
+
+    $<span style='color:#308080; '>(</span><span style='color:#800000; '>"</span><span style='color:#1060b6; '>#id4</span><span style='color:#800000; '>"</span><span style='color:#308080; '>)</span><span style='color:#308080; '>.</span>validate<span style='color:#308080; '>(</span><span style='color:#406080; '>{</span>
+        rules<span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+            <span style='color:#1060b6; '>'function_prefix_must_salem'</span> <span style='color:#406080; '>:</span> <span style='color:#406080; '>{</span>
+                <span style='color:#1060b6; '>'msg'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'Prefix must be "salem"'</span>
+            <span style='color:#406080; '>}</span>
+        <span style='color:#406080; '>}</span><span style='color:#308080; '>,</span>
+        <span style='color:#1060b6; '>'default'</span><span style='color:#406080; '>:</span> <span style='color:#1060b6; '>'All right'</span>
+    <span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span>
+
+<span style='color:#406080; '>}</span><span style='color:#308080; '>)</span><span style='color:#406080; '>;</span></pre>
+                    
+                </section>
+                
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            
+            $(document).ready(function(){
+                $("#id1").validate({
+                    rules: {
+                        'required' : {
+                            'msg': 'This input required'
+                        }
+                    },
+                    'default': 'All right'
+                });
+                
+                $("#id2").validate({
+                    rules: {
+                        'length' : {
+                            'msg': 'Length of this must be longer or equal to 2, less or equal to 6, must not equal to 3 and can be only 4,5 or 6',
+                            'min': 2,
+                            'max': 6,
+                            'not_equal': 3,
+                            'equals': [4,5,6]
+                        }
+                    },
+                    'default': 'All right'
+                });
+                
+                $("#id3").validate({
+                    rules: {
+                        'required' : {
+                            'msg': 'This input required'
+                        }
+                    },
+                    'displayTo' : $("#another_place"),
+                    'default': 'All right'
+                });
+            });
+            
+            
+            function prefix_must_salem(str, options)
+            {
+                return str.substr(0,5) == "salem";
+            }
+
+            $(document).ready(function(){
+
+                $("#id4").validate({
+                    rules: {
+                        'function_prefix_must_salem' : {
+                            'msg': 'Prefix must be "salem"'
+                        }
+                    },
+                    'default': 'All right'
+                });
+
+            });
+            
+        </script>
+
     </body>
 </html>

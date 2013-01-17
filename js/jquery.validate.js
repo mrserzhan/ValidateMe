@@ -71,6 +71,10 @@
                         break;
                     }
                 }
+                else
+                {
+                    console.log('Undefined rules ' + cur.name);
+                }
             }
             
             if(error)
@@ -134,6 +138,48 @@
                 res = res && local_res;
             }
             return res;
+        },
+        
+        alpha : function(str, options) {
+            return /^[a-zA-Z]*$/.test(str);
+        },
+        
+        alpha_numeric : function(str, options) {
+            return /^[a-zA-Z0-9]*$/.test(str);
+        },
+        
+        alpha_dash : function(str, options) {
+            return /^([-a-z0-9_-])+$/i.test(str);
+        },
+        
+        numeric : function(str, options) {
+            return /^[0-9]*$/.test(str);
+        },
+        
+        integer : function(str, options) {
+            return /^[\-+]?[0-9]+$/.test(str);
+        },
+        
+        decimal : function(str, options) {
+            return /^[\-+]?[0-9]+\.[0-9]+$/.test(str);
+        },
+        
+        valid_email : function(str, options) {
+            return /\S+@\S+\.\S+/.test(str);
+        },
+        
+        match: function(str, options) {
+            if(typeof options.field == 'string')
+                return options.field == str;
+            else
+                return options.field.val() == str;
+        },
+        
+        not_match: function(str, options) {
+            if(typeof options.field == 'string')
+                return options.field != str;
+            else
+                return options.field.val() != str;
         }
         
     };

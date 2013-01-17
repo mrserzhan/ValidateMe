@@ -50,23 +50,24 @@
             var error = false;
             var string = datas['default'];
             
-            for(key in rules)
+            for(i=0;i<rules.length;i++)
             {
-                if ( typeof methods[key] === 'function' || key.substr(0,9) == "function_" )
+                var cur = rules[i];
+                if ( typeof cur.name === 'function' || ( typeof cur.name === 'string' && typeof methods[cur.name] === 'function'))
                 {
                     var bool = true;
-                    if(key.substr(0,9) == "function_")
+                    if( typeof cur.name === 'function' )
                     {
-                        bool = window[key.substr(9)]( $(e.target).val(), rules[key] );
+                        bool = cur.name( $(e.target).val(), rules[cur.name] );
                     }
                     else
                     {
-                        bool = methods[key]( $(e.target).val(), rules[key] )
+                        bool = methods[cur.name]( $(e.target).val(), rules[cur.name] )
                     }
                     if(!bool)
                     {
                         error = true;
-                        string = rules[key].msg;
+                        string = cur.msg;
                         break;
                     }
                 }

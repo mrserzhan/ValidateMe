@@ -142,33 +142,36 @@ $<span style='color:#308080; '>(</span>document<span style='color:#308080; '>)</
             
             $(document).ready(function(){
                 $("#id1").validate({
-                    rules: {
-                        'required' : {
+                    rules: [
+                        {
+                            'name' : 'required',
                             'msg': 'This input required'
                         }
-                    },
+                    ],
                     'default': 'All right'
                 });
                 
                 $("#id2").validate({
-                    rules: {
-                        'length' : {
+                    rules: [
+                        {
+                            'name' : 'length',
                             'msg': 'Length of this must be longer or equal to 2, less or equal to 6, must not equal to 3 and can be only 4,5 or 6',
                             'min': 2,
                             'max': 6,
                             'not_equal': 3,
                             'equals': [4,5,6]
                         }
-                    },
+                    ],
                     'default': 'All right'
                 });
                 
                 $("#id3").validate({
-                    rules: {
-                        'required' : {
+                    rules: [
+                        {
+                            'name' : 'required',
                             'msg': 'This input required'
                         }
-                    },
+                    ],
                     'displayTo' : $("#another_place"),
                     'default': 'All right'
                 });
@@ -183,11 +186,12 @@ $<span style='color:#308080; '>(</span>document<span style='color:#308080; '>)</
             $(document).ready(function(){
 
                 $("#id4").validate({
-                    rules: {
-                        'function_prefix_must_salem' : {
+                    rules: [
+                        {
+                            'name': prefix_must_salem,
                             'msg': 'Prefix must be "salem"'
                         }
-                    },
+                    ],
                     'default': 'All right'
                 });
 
